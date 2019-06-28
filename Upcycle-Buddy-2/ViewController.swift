@@ -20,26 +20,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var addBarButton: UIBarButtonItem!
     
     var items: Items!
+    var item: Item!
     var authUI: FUIAuth!
+    
+    var searchItems = [String]()
+    var searching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         items = Items()
+        item = Item()
+        alterLayout()
         authUI = FUIAuth.defaultAuthUI()
         authUI?.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
         tableView.isHidden = true
-        
-        //searchBar.delegate = self
-        //alterLayout()
     }
     
     //MARK:- **fix** uncomment if not saving properly:
     override func viewWillAppear(_ animated: Bool) {
-        items.loadData {
-            self.tableView.reloadData()
-        }
+        reloadTheData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -60,11 +61,18 @@ class ViewController: UIViewController {
         }
     }
     
+    func reloadTheData() {
+        items.loadData {
+            self.tableView.reloadData()
+        }
+    }
+    
     //MARK:- search bar
-    //    func alterLayout() {
-    //        searchBar.showsScopeBar = false
-    //        searchBar.placeholder = "Search items by name"
-    //    }
+    
+    func alterLayout() {
+        searchBar.showsScopeBar = false
+        searchBar.placeholder = "Search items by name"
+    }
     
     //MARK:- signIn functions
     func signIn() {
@@ -102,28 +110,38 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.itemArray.count
+        if searching {
+            return searchItems.count
+        } else {
+            return items.itemArray.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = items.itemArray[indexPath.row].itemName
+        if searching {
+            cell.textLabel?.text = searchItems[indexPath.row]
+        } else {
+            cell.textLabel?.text = items.itemArray[indexPath.row].itemName
+        }
         return cell
     }
+}
+
+//MARK:- search bar
+extension ViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchItems = [item.itemName.filter({ searchText -> Bool in
+            item.itemName.lowercased().contains(searchText.lowercased())
+        })]
+        self.tableView.reloadData()
+    }
     
-    //    //MARK:- search bar extension
-    //    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    //        guard !searchText.isEmpty else {
-    //            items.currentItemArray = items.itemArray
-    ////            items.loadData {
-    ////                self.tableView.reloadData()
-    ////            }
-    //            return
-    //        }
-    //        items.currentItemArray = items.itemArray.filter({ item -> Bool in
-    //            item.itemName.lowercased().contains(searchText.lowercased())
-    //        })
-    //    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+        reloadTheData()
+    }
 }
 
 
