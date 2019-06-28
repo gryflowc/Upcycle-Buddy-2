@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1052297410874-1u0e10tqt5mbn26c887l93v8g1hvig5a.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1052297410874-1u0e10tqt5mbn26c887l93v8g1hvig5a</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAjhgpvr6frOlVyg_DLWl7_6QmN967Q9-I</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1052297410874</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>egryflowczowska-googlemail.com.Upcycle-Buddy-2</string>
+	<key>PROJECT_ID</key>
+	<string>upcycle-buddy-2</string>
+	<key>STORAGE_BUCKET</key>
+	<string>upcycle-buddy-2.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1052297410874:ios:574a895ed7a35104</string>
+	<key>DATABASE_URL</key>
+	<string>https://upcycle-buddy-2.firebaseio.com</string>
+</dict>
+</plist>
