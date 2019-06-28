@@ -11,6 +11,7 @@
 		1A194C9922C5951500B7EEBE /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A194C9822C5951500B7EEBE /* Items.swift */; };
 		1A194C9B22C595F400B7EEBE /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A194C9A22C595F400B7EEBE /* DetailTableViewController.swift */; };
 		1A194C9D22C59B3500B7EEBE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A194C9C22C59B3500B7EEBE /* GoogleService-Info.plist */; };
+		1A194C9F22C5BD3C00B7EEBE /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A194C9E22C5BD3C00B7EEBE /* login.png */; };
 		1A7E18BC22C592FB001A7379 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E18BB22C592FB001A7379 /* AppDelegate.swift */; };
 		1A7E18BE22C592FB001A7379 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E18BD22C592FB001A7379 /* ViewController.swift */; };
 		1A7E18C122C592FB001A7379 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A7E18BF22C592FB001A7379 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		1A194C9822C5951500B7EEBE /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		1A194C9A22C595F400B7EEBE /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
 		1A194C9C22C59B3500B7EEBE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1A194C9E22C5BD3C00B7EEBE /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = login.png; path = "../../../Documents/Swift in Dublin/Final App/recycleImages/login.png"; sourceTree = "<group>"; };
 		1A7E18B822C592FB001A7379 /* Upcycle-Buddy-2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Upcycle-Buddy-2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A7E18BB22C592FB001A7379 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A7E18BD22C592FB001A7379 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				1A194C9A22C595F400B7EEBE /* DetailTableViewController.swift */,
 				1A7E18BF22C592FB001A7379 /* Main.storyboard */,
 				1A7E18C222C592FC001A7379 /* Assets.xcassets */,
+				1A194C9E22C5BD3C00B7EEBE /* login.png */,
 				1A7E18C422C592FC001A7379 /* LaunchScreen.storyboard */,
 				1A7E18C722C592FC001A7379 /* Info.plist */,
 				1A194C9C22C59B3500B7EEBE /* GoogleService-Info.plist */,
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A7E18C622C592FC001A7379 /* LaunchScreen.storyboard in Resources */,
+				1A194C9F22C5BD3C00B7EEBE /* login.png in Resources */,
 				1A194C9D22C59B3500B7EEBE /* GoogleService-Info.plist in Resources */,
 				1A7E18C322C592FC001A7379 /* Assets.xcassets in Resources */,
 				1A7E18C122C592FB001A7379 /* Main.storyboard in Resources */,

@@ -11,12 +11,14 @@ import GooglePlaces
 import MapKit
 import Firebase
 import MessageUI
+import AVFoundation
 
 class DetailTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var cancelBarButton: UIBarButtonItem!
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
     @IBOutlet weak var sendBarButton: UIButton!
+    @IBOutlet weak var soundOffButton: UIButton!
     
     @IBOutlet weak var itemTextView: UITextView!
     @IBOutlet weak var addressTextView: UITextView!
@@ -27,6 +29,9 @@ class DetailTableViewController: UITableViewController, MFMailComposeViewControl
     var item: Item!
     let regionDistance: CLLocationDistance = 50000 // 50 km or 50,000 meters
     var imagePicker = UIImagePickerController()
+    var audioPlayer = AVAudioPlayer()
+    var index = 0
+    let numberOfSounds = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,6 +122,32 @@ class DetailTableViewController: UITableViewController, MFMailComposeViewControl
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
+    
+    func playSound(soundName: String, audioPlayer: inout AVAudioPlayer) {
+        if let sound = NSDataAsset(name: soundName) {
+            do {
+                try audioPlayer = AVAudioPlayer(data: sound.data)
+                audioPlayer.play()
+            } catch {
+                print("ERROR: Data from \(soundName) could not be played as an audio file.")
+            }
+        } else {
+            print("ERROR: Cannot play sound data.")
+        }
+    }
+    
+    @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
+        index += 1
+        if index == numberOfSounds {
+            index = 0
+        }
+        playSound(soundName: "sound\(index)", audioPlayer: &audioPlayer)
+    }
+    
+    @IBAction func soundOffButtonPressed(_ sender: UIButton) {
+        self.audioPlayer.stop()
+    }
+    
     
     @IBAction func sendButtonPressed(_ sender: UIButton) {
         let mailComposeViewController = configuredMailComposeViewController()

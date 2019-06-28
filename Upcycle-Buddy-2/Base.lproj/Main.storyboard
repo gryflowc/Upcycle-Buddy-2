@@ -61,7 +61,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Vkf-77-16x">
-                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="7cn-rJ-sSA"/>
+                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="7cn-rJ-sSA">
+                            <connections>
+                                <action selector="signOutPressed:" destination="BYZ-38-t0r" id="Pp6-7c-Pda"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="sMp-8h-Fzc">
                             <connections>
                                 <segue destination="7vk-yq-3xm" kind="presentation" identifier="AddItem" id="krV-s9-7IS"/>
@@ -186,15 +190,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="299.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fxh-gH-2ag">
-                                                    <rect key="frame" x="20" y="11" width="374" height="278"/>
+                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fxh-gH-2ag">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="271"/>
+                                                    <gestureRecognizers/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="pAE-Y7-tYG" appends="YES" id="J2d-13-0DP"/>
+                                                    </connections>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="saW-8o-BWB">
+                                                    <rect key="frame" x="268" y="269.5" width="130" height="30"/>
+                                                    <state key="normal" title="Turn Sound Off 🔇"/>
+                                                    <connections>
+                                                        <action selector="soundOffButtonPressed:" destination="nO0-3h-oZ4" eventType="touchUpInside" id="TMj-IP-yHP"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Fxh-gH-2ag" secondAttribute="trailing" id="6Iv-Ow-ZQJ"/>
                                                 <constraint firstItem="Fxh-gH-2ag" firstAttribute="leading" secondItem="7vu-pE-Lof" secondAttribute="leadingMargin" id="6wF-ML-gxO"/>
-                                                <constraint firstItem="Fxh-gH-2ag" firstAttribute="top" secondItem="7vu-pE-Lof" secondAttribute="topMargin" id="NiH-4f-8GB"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Fxh-gH-2ag" secondAttribute="bottom" id="RqZ-my-S0p"/>
+                                                <constraint firstItem="Fxh-gH-2ag" firstAttribute="top" secondItem="7vu-pE-Lof" secondAttribute="topMargin" constant="-11" id="NiH-4f-8GB"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Fxh-gH-2ag" secondAttribute="bottom" constant="18" id="RqZ-my-S0p"/>
+                                                <constraint firstAttribute="trailing" secondItem="saW-8o-BWB" secondAttribute="trailing" constant="16" id="fsC-6J-bZc"/>
+                                                <constraint firstAttribute="bottom" secondItem="saW-8o-BWB" secondAttribute="bottom" id="lST-tR-oLH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -264,8 +281,14 @@
                         <outlet property="mapView" destination="Yq5-1f-aqp" id="g5A-vm-Voh"/>
                         <outlet property="saveBarButton" destination="dTq-da-d8F" id="Yql-d8-UAv"/>
                         <outlet property="sendBarButton" destination="LW4-gf-lSc" id="abe-6t-ScF"/>
+                        <outlet property="soundOffButton" destination="saW-8o-BWB" id="XH4-r7-FVi"/>
                     </connections>
                 </tableViewController>
+                <tapGestureRecognizer id="pAE-Y7-tYG">
+                    <connections>
+                        <action selector="imageTapped:" destination="nO0-3h-oZ4" id="UW2-3x-uow"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3186.9565217391305" y="115.84821428571428"/>
         </scene>
